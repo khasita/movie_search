@@ -25,12 +25,6 @@ jobs:
           doctl kubernetes cluster kubeconfig save 0626509a-4e15-4f0c-8fdb-84899327af85
           kubectl get nodes
 
-      # - name: Deploy (apply manifests)
-      #   run: |
-      #     IMAGE="ghcr.io/${{ github.repository }}:${{ github.sha }}"
-      #     sed -i.bak "s|REPLACE_AT_DEPLOY_TIME|${{ github.sha }}|g" k8s/deployment.yaml
-      #     kubectl apply -f k8s/
-
       - name: Deploy (apply manifests)
         run: |
           IMAGE="ghcr.io/${{ github.repository }}:${{ github.sha }}"
